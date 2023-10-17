@@ -1,0 +1,19 @@
+{
+  "al_quran_title": "Al Quran",
+  "num_of_surah": "enter the number of the surah",
+  "al_quran_validation": "Surah Num Must Be Entered",
+  "get_surah_button": "Get the Surah",
+  "dog_title": "Random Dog Image",
+  "dog_fruit_button": "Get fruit data ",
+  "dog_button": "Random Dog Image",
+  "dog_text": "Lovely Dog",
+  "emoji_title": "Random Emoji",
+  "emoji_text": "Lovely Emoji",
+  "emoji_dog_button": "Get Dog Image",
+  "category": "Category",
+  "group": "Group",
+  "fruit_title":"Fruits",
+  "fruit_text": "Nothing",
+  "fruit_form_field": "Enter the Fruit Name",
+  "fruit_button": "Get Fruit Data"
+}

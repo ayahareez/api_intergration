@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/fruit_bloc.dart';
@@ -13,8 +14,8 @@ class FruitPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Fruit Page',
+        title: Text(
+          tr("fruit_title"),
           style: TextStyle(fontSize: 34),
         ),
       ),
@@ -30,7 +31,7 @@ class FruitPage extends StatelessWidget {
                   children: [
                     if (state is FruitInitial)
                       Text(
-                        'nothing',
+                        tr('fruit_text'),
                         style: TextStyle(
                             fontSize: 32, fontWeight: FontWeight.bold),
                       ),
@@ -83,8 +84,8 @@ class FruitPage extends StatelessWidget {
                       ),
                     TextFormField(
                       controller: fruitNameC,
-                      decoration: const InputDecoration(
-                          labelText: 'enter the Fruit name',
+                      decoration: InputDecoration(
+                          labelText: tr('fruit_form_field'),
                           labelStyle:
                               TextStyle(fontSize: 18, color: Colors.purple),
                           border: OutlineInputBorder()),
@@ -98,7 +99,7 @@ class FruitPage extends StatelessWidget {
                               .read<FruitBloc>()
                               .add(GetFruitByName(fruitName: fruitNameC.text));
                         },
-                        child: const Text('get fruit data'))
+                        child: Text(tr('fruit_button')))
                   ],
                 ),
               ),

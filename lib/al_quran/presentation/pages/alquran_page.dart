@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../fruit/data/remote_ds/fruit_remote_ds.dart';
@@ -30,7 +31,7 @@ class AlQuranScreen extends StatelessWidget {
       appBar: AppBar(
           backgroundColor: const Color(0xff006d77),
           foregroundColor: Colors.grey[200],
-          title: Text('QURAN')),
+          title: Text(tr('al_quran_title'))),
       body: BlocBuilder<AlQuranBloc, AlQuranState>(
         builder: (context, state) {
           return SingleChildScrollView(
@@ -52,12 +53,13 @@ class AlQuranScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(state.alQuranModel.ayahs.sublist(1).join(' '),
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            textDirection: TextDirection.rtl),
+                        Text(
+                          state.alQuranModel.ayahs.sublist(1).join(' '),
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                       ],
                     ),
                   const SizedBox(
@@ -66,7 +68,7 @@ class AlQuranScreen extends StatelessWidget {
                   TextFormField(
                     controller: surahNumC,
                     decoration: InputDecoration(
-                      labelText: 'enter the number of the surah',
+                      labelText: tr('num_of_surah'),
                       labelStyle: const TextStyle(
                           color: Color(0xff006d77), fontSize: 16),
                       border: OutlineInputBorder(
@@ -75,7 +77,7 @@ class AlQuranScreen extends StatelessWidget {
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Surah Num Must Be Entered';
+                        return tr('al_quran_validation');
                       }
                     },
                   ),
@@ -90,9 +92,9 @@ class AlQuranScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xff006d77),
                     ),
-                    child: const Text(
-                      'get surah',
-                      style: TextStyle(color: Colors.white, fontSize: 22),
+                    child: Text(
+                      tr('get_surah_button'),
+                      style: const TextStyle(color: Colors.white, fontSize: 22),
                     ),
                   ),
                 ],

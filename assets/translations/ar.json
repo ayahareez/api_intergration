@@ -1,0 +1,19 @@
+{
+  "al_quran_title": "القرأن",
+  "num_of_surah": "ادخل رقم السوره",
+  "al_quran_validation": "يجب ادخال رقم السوره",
+  "get_surah_button": "البحث عن السوره",
+  "dog_title": "صورة كلب عشوائيه",
+  "dog_fruit_button": "معلومات عن الفاكهه ",
+  "dog_button": "صورة كلب عشوائيه",
+  "dog_text": "كلب حبوب",
+  "emoji_title": "ايموجي عشوائي",
+  "emoji_text": "ايموجي جميل",
+  "emoji_dog_button": "صورة كلب عشوائي",
+  "category": "فئه",
+  "group": "مجموعه",
+  "fruit_title":"فاكهه",
+  "fruit_text": "مفيش حاجه لسه",
+  "fruit_form_field": "ادخل اسم الفاكهه",
+  "fruit_button": "معلومات عن الفاكهه"
+}

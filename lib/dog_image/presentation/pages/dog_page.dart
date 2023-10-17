@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../fruit/presentation/pages/fruit_page.dart';
@@ -37,7 +38,7 @@ class _DogScreenState extends State<DogScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Random Dog API Demo'),
+        title: Text(tr('dog_title')),
         actions: [
           TextButton(
             onPressed: () {
@@ -45,8 +46,8 @@ class _DogScreenState extends State<DogScreen> {
                   MaterialPageRoute(builder: (context) => FruitPage()));
             },
             style: TextButton.styleFrom(backgroundColor: Colors.white),
-            child: const Text(
-              'Get Fruit Data',
+            child: Text(
+              tr('dog_fruit_button'),
               style: TextStyle(
                   color: Colors.purple,
                   fontSize: 16,
@@ -60,33 +61,35 @@ class _DogScreenState extends State<DogScreen> {
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (state is DogInitial)
-                    Text(
-                      'Lovely Dogs',
-                      style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (state is DogInitial)
+                      Text(
+                        tr('dog_text'),
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                    if (state is DogLoadingState)
+                      const CircularProgressIndicator(),
+                    if (state is DogLoadedState)
+                      Column(
+                        children: [
+                          Image.network(state.dogModel.url),
+                          const SizedBox(
+                            height: 32,
+                          ),
+                        ],
+                      ),
+                    ElevatedButton(
+                      onPressed: () async {
+                        context.read<DogBloc>().add(GetRandomDogImage());
+                      },
+                      child: Text(tr('dog_button')),
                     ),
-                  if (state is DogLoadingState)
-                    const CircularProgressIndicator(),
-                  if (state is DogLoadedState)
-                    Column(
-                      children: [
-                        Image.network(state.dogModel.url),
-                        const SizedBox(
-                          height: 32,
-                        ),
-                      ],
-                    ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      context.read<DogBloc>().add(GetRandomDogImage());
-                    },
-                    child: const Text('Get Random Dog Image'),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
@@ -49,7 +50,7 @@ class _EmojiScreenState extends State<EmojiScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Random Emoji'),
+        title: Text(tr("emoji_title")),
         actions: [
           TextButton(
             onPressed: () {
@@ -59,7 +60,7 @@ class _EmojiScreenState extends State<EmojiScreen> {
             child: Row(
               children: [
                 Text(
-                  'get a dog image',
+                  tr("emoji_dog_button"),
                   style: TextStyle(
                       color: Colors.purple,
                       fontSize: 16,
@@ -81,7 +82,7 @@ class _EmojiScreenState extends State<EmojiScreen> {
                 children: [
                   if (state is EmojiInitial)
                     Text(
-                      'get lovely emoji',
+                      tr("emoji_text"),
                       style:
                           TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                     ),
@@ -98,11 +99,11 @@ class _EmojiScreenState extends State<EmojiScreen> {
                         ),
                         const SizedBox(height: 16),
                         Text(
-                          'Category: ${state.emojiRandomModel.category}',
+                          '${tr("category")}: ${state.emojiRandomModel.category}',
                           style: const TextStyle(fontSize: 20),
                         ),
                         Text(
-                          'Group: ${state.emojiRandomModel.group}',
+                          '${tr("group")}: ${state.emojiRandomModel.group}',
                           style: const TextStyle(fontSize: 16),
                         ),
                         const SizedBox(height: 16),
